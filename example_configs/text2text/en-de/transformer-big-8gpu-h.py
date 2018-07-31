@@ -32,10 +32,10 @@ base_params = {
   "print_samples_steps": 100,
   "eval_steps": 4001,
   "save_checkpoint_steps": 4000,
-  "logdir": "Transformer-8GPUs-FP32",
-  "dtype": tf.float32,
-  #"dtype": "mixed",
-  #"loss_scaling": "Backoff",
+  "logdir": "Transformer-8GPUs-MP",
+  #"dtype": tf.float32,
+  "dtype": "mixed",
+  "loss_scaling": "Backoff",
 
   "optimizer": tf.contrib.opt.LazyAdamOptimizer,
   "optimizer_params": {
