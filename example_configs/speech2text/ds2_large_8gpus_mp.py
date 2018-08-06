@@ -12,9 +12,10 @@ base_model = Speech2Text
 
 base_params = {
   "random_seed": 0,
-  "use_horovod": False,
+  "use_horovod": True,
   "num_gpus": 8,
   "batch_size_per_gpu": 16,
+  "iter_size": 8,
 
   "num_epochs": 50,
 
@@ -31,7 +32,7 @@ base_params = {
   },
   "lr_policy": poly_decay,
   "lr_policy_params": {
-    "learning_rate": 0.001,
+    "learning_rate": 0.01,
     "power": 0.5,
   },
   "larc_params": {
@@ -78,7 +79,7 @@ base_params = {
 
   "decoder": FullyConnectedCTCDecoder,
   "decoder_params": {
-    "use_language_model": True,
+    "use_language_model": False,
 
     # params for decoding the sequence with language model
     "beam_width": 512,
@@ -109,7 +110,7 @@ train_params = {
       "data/librispeech/librivox-train-clean-360.csv",
       "data/librispeech/librivox-train-other-500.csv",
     ],
-    "max_duration": None,
+    "max_duration": 16.7,
     "shuffle": True,
   },
 }
